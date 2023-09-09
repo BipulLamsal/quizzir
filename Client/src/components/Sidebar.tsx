@@ -36,7 +36,7 @@ function Sidebar() {
     },
   ];
   return (
-    <div className="bg-purple-500 text-white w-1/4 h-screen px-12 py-2">
+    <div className="bg-purple-500 text-white w-1/6 h-screen px-12 py-2">
       <ul className="mt-4 flex flex-col">
         {sideBarNavItems.map((item) => {
           return (
