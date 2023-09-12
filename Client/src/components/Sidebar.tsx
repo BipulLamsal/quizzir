@@ -2,13 +2,19 @@ import { MdExplore, MdQuiz } from "react-icons/md";
 import { PiNoteFill } from "react-icons/pi";
 import { CgLivePhoto } from "react-icons/cg";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { SidebarContext } from '../context/SidebarContext';
+import { motion } from 'framer-motion';
+
+
 function Sidebar() {
   const [isActive, setIsActive] = useState(0);
   const handleOnClick = (index: number) => {
     setIsActive(index);
   };
 
+  const {isToggled,setIsToggled} = useContext(SidebarContext);
+  console.log(isToggled);
   const sideBarNavItems = [
     {
       id: 0,
@@ -36,7 +42,10 @@ function Sidebar() {
     },
   ];
   return (
-    <div className="bg-purple-500 text-white w-1/6 h-screen px-12 py-2">
+
+      
+
+    <div className="bg-purple-500 text-white h-screen px-12 py-2">
       <ul className="mt-4 flex flex-col">
         {sideBarNavItems.map((item) => {
           return (
@@ -53,7 +62,7 @@ function Sidebar() {
               >
                 <p className="flex flex-row items-center gap-5">
                   <p>{item.icon}</p>
-                  {item.display}
+                  {!isToggled && item.display}
                 </p>
               </li>
             </Link>
@@ -61,6 +70,7 @@ function Sidebar() {
         })}
       </ul>
     </div>
+
   );
 }
 
