@@ -3,17 +3,31 @@ import { PiNoteFill } from "react-icons/pi";
 import { CgLivePhoto } from "react-icons/cg";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
-import { SidebarContext } from '../context/SidebarContext';
-import { motion } from 'framer-motion';
-
+import { SidebarContext } from "../context/SidebarContext";
+import { AnimatePresence, motion, spring } from "framer-motion";
 
 function Sidebar() {
   const [isActive, setIsActive] = useState(0);
   const handleOnClick = (index: number) => {
     setIsActive(index);
   };
-
-  const {isToggled,setIsToggled} = useContext(SidebarContext);
+  const showAnimation = {
+    hidden: {
+      width: 0,
+      opacity: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+    show: {
+      opacity: 1,
+      width: "auto",
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+  const { isToggled, setIsToggled } = useContext(SidebarContext);
   console.log(isToggled);
   const sideBarNavItems = [
     {
@@ -41,11 +55,12 @@ function Sidebar() {
       to: "/quizhunt",
     },
   ];
+
   return (
-
-      
-
-    <div className="bg-purple-500 text-white h-screen px-12 py-2">
+    <motion.div
+      className="bg-purple-500 text-white h-screen px-12 py-2"
+      transition={{ duration: 0.5, type: spring, damping: 10 }}
+    >
       <ul className="mt-4 flex flex-col">
         {sideBarNavItems.map((item) => {
           return (
@@ -69,8 +84,7 @@ function Sidebar() {
           );
         })}
       </ul>
-    </div>
-
+    </motion.div>
   );
 }
 
