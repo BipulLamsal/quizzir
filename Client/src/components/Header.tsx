@@ -11,13 +11,13 @@ function Header() {
   };
 
   return (
-    <nav className="p-4 px-10 bg-purple-500 flex justify-between items-center">
+    <nav className="p-4 px-10 bg-purple-500 flex justify-between items-center sticky top-0">
       <div className="flex items-center">
         <span className="ml-2 text-white">
           <img src={Logo} alt="quizzir logo"></img>
         </span>
         <p className="text-xl font-bold text-white">
-          {!isToggled && "Quizzir"}
+          {"Quizzir"}
         </p>
         <button
           className="text-white ml-20 text-2xl cursor-pointer"

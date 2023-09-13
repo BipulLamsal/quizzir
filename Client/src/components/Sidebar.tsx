@@ -11,23 +11,7 @@ function Sidebar() {
   const handleOnClick = (index: number) => {
     setIsActive(index);
   };
-  const showAnimation = {
-    hidden: {
-      width: 0,
-      opacity: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-    show: {
-      opacity: 1,
-      width: "auto",
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
-  const { isToggled, setIsToggled } = useContext(SidebarContext);
+  const { isToggled } = useContext(SidebarContext);
   console.log(isToggled);
   const sideBarNavItems = [
     {
@@ -58,8 +42,11 @@ function Sidebar() {
 
   return (
     <motion.div
-      className="bg-purple-500 text-white h-screen px-12 py-2"
-      transition={{ duration: 0.5, type: spring, damping: 10 }}
+      className={`bg-purple-500 text-white h-screen transition-width duration-300 px-12 py-2`}
+      initial={{ 
+        width: "300px" }}
+      animate={{ width: !isToggled ? "300px" : "160px" }}
+      transition={{ duration: 0.1 }}
     >
       <ul className="mt-4 flex flex-col">
         {sideBarNavItems.map((item) => {
