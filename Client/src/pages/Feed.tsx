@@ -1,8 +1,9 @@
 import React from 'react'
+import SliderContainer from '../components/SliderContainer'
 
 function Feed() {
   return (
-    <div>Feed</div>
+    <SliderContainer></SliderContainer>
   )
 }
 

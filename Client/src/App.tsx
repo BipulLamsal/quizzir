@@ -7,9 +7,9 @@ function App() {
     <>
       <SidebarContextProvider>
         <Header></Header>
-        <div className="flex fixed ">
+        <div className="flex flex-row w-full fixed">
           <Sidebar></Sidebar>
-          <main className="flex-1 p-4">
+          <main className="w-full container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl ">
             <Outlet></Outlet>
           </main>
         </div>

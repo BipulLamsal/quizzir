@@ -43,9 +43,10 @@ function Sidebar() {
   return (
     <motion.div
       className={`bg-purple-500 text-white h-screen transition-width duration-300 px-12 py-2`}
-      initial={{ 
-        width: "300px" }}
-      animate={{ width: !isToggled ? "300px" : "160px" }}
+      initial={{
+        width: "400px",
+      }}
+      animate={{ width: !isToggled ? "400px" : "160px" }}
       transition={{ duration: 0.1 }}
     >
       <ul className="mt-4 flex flex-col">
